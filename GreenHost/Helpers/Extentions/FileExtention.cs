@@ -25,7 +25,7 @@ public static class FileExtention
 
     public static string UpdateFile(this IFormFile file, string webRootPath, string folderName, string oldUrl)
     {
-        RemoveFile(webRootPath,folderName,file.FileName);
+        RemoveFile(webRootPath,folderName,oldUrl );
         var newImageUrl = file.CreateFile(webRootPath, folderName);
         return newImageUrl;
     }
