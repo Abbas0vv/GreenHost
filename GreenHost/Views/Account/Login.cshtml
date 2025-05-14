@@ -1,0 +1,19 @@
+﻿@model RegisterViewModel
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="w-100" style="max-width: 400px;">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="Enter your Email">
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">Password</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Enter your Password">
+                <span class="text-danger" asp-validation-for="Password"></span>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Login</button>
+        </form>
+    </div>
+</div>

@@ -44,12 +44,29 @@ namespace GreenHost.Controllers
                     ModelState.AddModelError("", error.Description);
                 return View(registerModel);
             }
-            else
-            {
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                return RedirectToAction("Index", "Home");
-            }
 
+            await _signInManager.SignInAsync(user, isPersistent: false);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel loginModel)
+        {
+            if (!ModelState.IsValid) return View(loginModel);
+            var user = await _userManager.FindByEmailAsync(loginModel.Email);
+            if (user == null) return NotFound();
+
+            var result = await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false);
+            if (!result.Succeeded) return View(loginModel);
+
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
