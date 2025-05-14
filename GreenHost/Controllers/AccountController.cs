@@ -63,7 +63,11 @@ namespace GreenHost.Controllers
             if (user == null) return NotFound();
 
             var result = await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false);
-            if (!result.Succeeded) return View(loginModel);
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "Invalid Password");
+                return View(loginModel);
+            }
 
 
             return RedirectToAction("Index", "Home");
