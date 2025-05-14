@@ -13,7 +13,11 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<TeamMemberRepository>();
 
-builder.Services.AddIdentity<AppUser, AppRole>()
+builder.Services.AddIdentity<AppUser, AppRole>(opt =>
+{
+    opt.Password.RequireNonAlphanumeric = false;
+    opt.Password.RequireUppercase = false;
+})
     .AddEntityFrameworkStores<GreenHostDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddDbContext<GreenHostDbContext>(options =>

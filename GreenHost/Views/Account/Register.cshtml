@@ -1,0 +1,39 @@
+﻿@model RegisterViewModel
+
+<div class="container mt-5 d-flex flex-column">
+    <form method="post">
+        <div class="row">
+            <div class="mb-3 col-lg-6">
+                <label asp-for="Name" for="exampleFormControlInput1" class="form-label">Name</label>
+                <input asp-for="Name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your name">
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="mb-3 col-lg-6">
+                <label asp-for="Surname" for="exampleFormControlInput1" class="form-label">Surname</label>
+                <input asp-for="Surname" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your surname">
+                <span class="text-danger" asp-validation-for="Surname"></span>
+            </div>          
+            <div class="mb-3 col-lg-6">
+                <label asp-for="Username" for="exampleFormControlInput1" class="form-label">Username</label>
+                <input asp-for="Username" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your Username">
+                <span class="text-danger" asp-validation-for="Username"></span>
+            </div>           
+            <div class="mb-3 col-lg-6">
+                <label asp-for="Email" for="exampleFormControlInput1" class="form-label">Email</label>
+                <input asp-for="Email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your Email">
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>        
+            <div class="mb-3 col-lg-6">
+                <label asp-for="Password" for="exampleFormControlInput1" class="form-label">Password</label>
+                <input asp-for="Password" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Enter your Password">
+                <span class="text-danger" asp-validation-for="Password"></span>
+            </div>           
+            <div class="mb-3 col-lg-6">
+                <label asp-for="ConfirmPassword" for="exampleFormControlInput1" class="form-label">Confirm Password</label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" id="exampleFormControlInput1" placeholder="Confirm Password">
+                <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Register</button>
+    </form>
+</div>
