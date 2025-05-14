@@ -1,9 +1,8 @@
-
-
 using GreenHost.Database;
+using GreenHost.Database.Models.Account;
 using GreenHost.Database.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyModel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +12,9 @@ builder.Services
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<TeamMemberRepository>();
+
+builder.Services.AddIdentity<AppUser, AppRole>()
+    .AddEntityFrameworkStores<GreenHostDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddDbContext<GreenHostDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));

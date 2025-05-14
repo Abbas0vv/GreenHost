@@ -1,7 +1,7 @@
 ﻿using GreenHost.Database.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GreenHost.Controllers.Home;
+namespace GreenHost.Controllers;
 
 public class HomeController : Controller
 {

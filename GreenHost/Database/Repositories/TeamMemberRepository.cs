@@ -28,7 +28,7 @@ public class TeamMemberRepository
 
     public void Insert(TeamMemberViewModel memberVm)
     {
-        if (!memberVm.File.IsValidFile()) return;
+        if (memberVm.File is not null && !memberVm.File.IsValidFile()) return;
 
         var member = new TeamMember()
         {
@@ -51,7 +51,7 @@ public class TeamMemberRepository
         member.Surname = memberVm.Surname;
         member.Description = memberVm.Description;
 
-        if (memberVm.File is not null)
+        if (memberVm.File is not null && memberVm.File.IsValidFile())
             member.ImageUrl = memberVm.File.UpdateFile(_environment.WebRootPath, FOLDER_NAME, member.ImageUrl);
 
         _context.SaveChanges();
