@@ -18,7 +18,7 @@ public class TeamMemberRepository
 
     public List<TeamMember> GetAll()
     {
-        return _context.TeamMembers.OrderBy(t => t.Id).ToList();
+        return _context.TeamMembers.Take(4).OrderBy(t => t.Id).ToList();
     }
 
     public TeamMember GetById(int? id)
